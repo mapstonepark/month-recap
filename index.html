@@ -13,8 +13,8 @@
             <h3>Add New Recap:</h3>
             <form id="recapInputForm">
                <div class="form-group">
-                <label for="monthRecapInput">Month</label>
-                <input type="text" class="form-control" id="monthRecapInput" placeholder="What month is this review for?">
+                <label for="monthInput">Month</label>
+                <input type="text" class="form-control" id="monthInput" placeholder="What month is this review for?">
                </div>
                <div class="form-group">
                 <label for="overallEventsInput">Overall Events and Accomplishments</label>
@@ -45,8 +45,8 @@
                 <input type="text" class="form-control" id="friendsTimeInput" placeholder="Most worthwhile hangout?">
                </div>
                <div class="form-group">
-                <label for="memorableInput">What was your most memorable event?</label>
-                <input type="text" class="form-control" id="memorableInput" placeholder="Any event that stands out as your favorite activity?">
+                <label for="memorableEventInput">What was your most memorable event?</label>
+                <input type="text" class="form-control" id="memorableEventInput" placeholder="Any event that stands out as your favorite activity?">
                </div>
                <div class="form-group">
                 <label for="musicInput">What music did you listen to?</label>
@@ -60,7 +60,15 @@
                 <label for="foodInput">What did you eat?</label>
                 <input type="text" class="form-control" id="foodInput" placeholder="Any new recipes you tried out or restaurants worth revisiting?">
                </div>
+               <button type="submit" class="btn btn-primary">Create</button>
             </form>
+        </section>
+        <section class="row">
+            <div class="col-lg-12">
+                <div id="monthsList">
+                    <!-- This will be populated by JS -->
+                </div>
+            </div>
         </section>
     </section>
 
