@@ -12,7 +12,7 @@ function fetchrecaps() {
         let month = recaps[i].month
         let description = recaps[i].description
         let severity = recaps[i].severity
-        let assignedTo = recaps[i].assignedTo
+        let familyInput = recaps[i].familyInput
         let status = recaps[i].status
         let statusColor = status == "Closed" ? 'label-success' : 'label-info'
 
@@ -22,7 +22,7 @@ function fetchrecaps() {
         '<p><span class= "label ' + statusColor + ' ">' + status + '</span></p>' +
         '<h3>' + month + '</h3>' +
         '<p>' + description + '</p>' + 
-        '<p><span class="glyphicon glyphicon-time"></span> ' + severity + ' ' + '<span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>' +
+        '<p><span class="glyphicon glyphicon-time"></span> ' + severity + ' ' + '<span class="glyphicon glyphicon-user"></span>' + familyInput + '</p>' +
         '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a> ' +
         '<a href="#" class="btn btn-danger" onclick="deleterecap(\''+id+'\')">Delete</a> '
         + '</div>'
@@ -34,7 +34,7 @@ function saverecap(e) {
     let recapMonth = document.getElementById('recapMonthInput').value
     let recapDesc = document.getElementById('recapDescInput').value
     let recapHealth = document.getElementById('recapHealthInput').value
-    let recapAssignedTo = document.getElementById('recapAssignedToInput').value
+    let recapFamilyInput = document.getElementById('recapFamilyInput').value
     let recapStatus = 'Open'
 
     let recap = {
@@ -42,7 +42,7 @@ function saverecap(e) {
         month: recapMonth,
         description: recapDesc,
         severity: recapHealth,
-        assignedTo: recapAssignedTo,
+        familyInput: recapFamilyInput,
         status: recapStatus
     }
 
