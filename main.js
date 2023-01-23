@@ -31,9 +31,9 @@ function fetchrecaps() {
 
 function saverecap(e) {
     let recapId = chance.guid()
-    let recapMonth = document.getElementById('recapSubjInput').value
+    let recapMonth = document.getElementById('recapMonthInput').value
     let recapDesc = document.getElementById('recapDescInput').value
-    let recapSeverity = document.getElementById('recapSeverityInput').value
+    let recapHealth = document.getElementById('recapHealthInput').value
     let recapAssignedTo = document.getElementById('recapAssignedToInput').value
     let recapStatus = 'Open'
 
@@ -41,7 +41,7 @@ function saverecap(e) {
         id: recapId,
         month: recapMonth,
         description: recapDesc,
-        severity: recapSeverity,
+        severity: recapHealth,
         assignedTo: recapAssignedTo,
         status: recapStatus
     }
