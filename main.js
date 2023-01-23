@@ -1,91 +1,91 @@
-document.getElementById('issueInputForm').addEventListener('submit',saveIssue)
+document.getElementById('recapInputForm').addEventListener('submit',saverecap)
 
-function fetchIssues() {
-    let issues = JSON.parse(localStorage.getItem('issues'))
-    let issuesList = document.getElementById('issuesList')
-    console.log(issues)
+function fetchrecaps() {
+    let recaps = JSON.parse(localStorage.getItem('recaps'))
+    let recapsList = document.getElementById('recapsList')
+    console.log(recaps)
 
-    issuesList.innerHTML = '';
+    recapsList.innerHTML = '';
 
-    for (let i = 0; i < issues.length; i++) {
-        let id = issues[i].id
-        let subject = issues[i].subject
-        let description = issues[i].description
-        let severity = issues[i].severity
-        let assignedTo = issues[i].assignedTo
-        let status = issues[i].status
+    for (let i = 0; i < recaps.length; i++) {
+        let id = recaps[i].id
+        let month = recaps[i].month
+        let description = recaps[i].description
+        let severity = recaps[i].severity
+        let assignedTo = recaps[i].assignedTo
+        let status = recaps[i].status
         let statusColor = status == "Closed" ? 'label-success' : 'label-info'
 
-        issuesList.innerHTML += 
+        recapsList.innerHTML += 
         '<div class="well">' +
-        '<h6>Issue ID:' + id + '</h6>' +
+        '<h6>recap ID:' + id + '</h6>' +
         '<p><span class= "label ' + statusColor + ' ">' + status + '</span></p>' +
-        '<h3>' + subject + '</h3>' +
+        '<h3>' + month + '</h3>' +
         '<p>' + description + '</p>' + 
         '<p><span class="glyphicon glyphicon-time"></span> ' + severity + ' ' + '<span class="glyphicon glyphicon-user"></span>' + assignedTo + '</p>' +
         '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a> ' +
-        '<a href="#" class="btn btn-danger" onclick="deleteIssue(\''+id+'\')">Delete</a> '
+        '<a href="#" class="btn btn-danger" onclick="deleterecap(\''+id+'\')">Delete</a> '
         + '</div>'
     }
 }
 
-function saveIssue(e) {
-    let issueId = chance.guid()
-    let issueSubject = document.getElementById('issueSubjInput').value
-    let issueDesc = document.getElementById('issueDescInput').value
-    let issueSeverity = document.getElementById('issueSeverityInput').value
-    let issueAssignedTo = document.getElementById('issueAssignedToInput').value
-    let issueStatus = 'Open'
+function saverecap(e) {
+    let recapId = chance.guid()
+    let recapMonth = document.getElementById('recapSubjInput').value
+    let recapDesc = document.getElementById('recapDescInput').value
+    let recapSeverity = document.getElementById('recapSeverityInput').value
+    let recapAssignedTo = document.getElementById('recapAssignedToInput').value
+    let recapStatus = 'Open'
 
-    let issue = {
-        id: issueId,
-        subject: issueSubject,
-        description: issueDesc,
-        severity: issueSeverity,
-        assignedTo: issueAssignedTo,
-        status: issueStatus
+    let recap = {
+        id: recapId,
+        month: recapMonth,
+        description: recapDesc,
+        severity: recapSeverity,
+        assignedTo: recapAssignedTo,
+        status: recapStatus
     }
 
-    if(localStorage.getItem('issues')===null) {
-        let issues = []
-        issues.push(issue)
-        localStorage.setItem('issues', JSON.stringify(issues))
+    if(localStorage.getItem('recaps')===null) {
+        let recaps = []
+        recaps.push(recap)
+        localStorage.setItem('recaps', JSON.stringify(recaps))
     } else {
-        let issues = JSON.parse(localStorage.getItem('issues'))
-        issues.push(issue)
-        localStorage.setItem('issues', JSON.stringify(issues))
+        let recaps = JSON.parse(localStorage.getItem('recaps'))
+        recaps.push(recap)
+        localStorage.setItem('recaps', JSON.stringify(recaps))
     }
 
-    document.getElementById('issueInputForm').reset();
+    document.getElementById('recapInputForm').reset();
 
-    fetchIssues()
+    fetchrecaps()
 
     e.preventDefault()
 }
 
 function setStatusClosed(id) {
-    let issues = JSON.parse(localStorage.getItem('issues'))
-    for(let i=0; i < issues.length; i++) {
-        if(issues[i].id === id) {
-            issues[i].status = "Closed"
+    let recaps = JSON.parse(localStorage.getItem('recaps'))
+    for(let i=0; i < recaps.length; i++) {
+        if(recaps[i].id === id) {
+            recaps[i].status = "Closed"
         }
     }
 
-    localStorage.setItem('issues', JSON.stringify(issues))
+    localStorage.setItem('recaps', JSON.stringify(recaps))
 
-    fetchIssues()
+    fetchrecaps()
 }
 
-function deleteIssue (id) {
-    let issues = JSON.parse(localStorage.getItem('issues'))
-    for(let i=0; i < issues.length; i++) {
-        if(issues[i].id === id) {
-            issues.splice(i,1)
+function deleterecap (id) {
+    let recaps = JSON.parse(localStorage.getItem('recaps'))
+    for(let i=0; i < recaps.length; i++) {
+        if(recaps[i].id === id) {
+            recaps.splice(i,1)
         }
     }
 
-    localStorage.setItem('issues', JSON.stringify(issues))
+    localStorage.setItem('recaps', JSON.stringify(recaps))
 
-    fetchIssues()
+    fetchrecaps()
 
 }
