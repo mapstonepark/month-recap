@@ -22,7 +22,7 @@ function fetchrecaps() {
         '<p><span class= "label ' + statusColor + ' ">' + status + '</span></p>' +
         '<h3>' + month + '</h3>' +
         '<p>' + description + '</p>' + 
-        '<p><span class="glyphicon glyphicon-tags"></span> ' + health + ' ' + '</p>' + '<p><span class="glyphicon glyphicon-user"></span>' + familyInput + '</p>' +
+        '<p><span class="glyphicon glyphicon-menu-right"></span> ' + health + ' ' + '</p>' + '<p><span class="glyphicon glyphicon-menu-right"></span>' + familyInput + '</p>' +
         '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a> ' +
         '<a href="#" class="btn btn-danger" onclick="deleterecap(\''+id+'\')">Delete</a> '
         + '</div>'
