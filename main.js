@@ -18,11 +18,11 @@ function fetchrecaps() {
 
         recapsList.innerHTML += 
         '<div class="well">' +
-        '<h6>recap ID:' + id + '</h6>' +
+        '<h5>recap ID:' + id + '</h5>' +
         '<p><span class= "label ' + statusColor + ' ">' + status + '</span></p>' +
         '<h3>' + month + '</h3>' +
         '<p>' + description + '</p>' + 
-        '<p><span class="glyphicon glyphicon-tags"></span> ' + health + ' ' + '<span class="glyphicon glyphicon-user"></span>' + familyInput + '</p>' +
+        '<p><span class="glyphicon glyphicon-tags"></span> ' + health + ' ' + '</p>' + '<p><span class="glyphicon glyphicon-user"></span>' + familyInput + '</p>' +
         '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a> ' +
         '<a href="#" class="btn btn-danger" onclick="deleterecap(\''+id+'\')">Delete</a> '
         + '</div>'
